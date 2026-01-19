@@ -46,6 +46,10 @@ resource "azurerm_resource_group" "RG" {
     
     command = "az vm image terms accept --urn cisco:cisco-c8000v-byol:17_13_01a-byol:latest"
   }
+  provisioner "local-exec" {
+    
+    command = "az vm image terms accept --urn cisco:cisco-asav:asav-azure-byol:latest"
+  }
 }
 
 #logic app to self destruct resourcegroup after 24hrs
@@ -1246,3 +1250,4 @@ route vpntunnel ${azurerm_virtual_network_gateway.azurevpngw.bgp_settings[0].pee
 
 CUSTOM_DATA  
 }
+
